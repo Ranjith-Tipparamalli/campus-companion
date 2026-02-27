@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+<h2>CampusCompanion Dashboard</h2>
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+</header>
+
+<section class="dashboard">
+
+<h3 id="welcome"></h3>
+
+<input type="text" id="taskInput" placeholder="Add New Task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
+
+<h3>Progress Analytics</h3>
+<canvas id="progressChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/chart.js"></script>
+
+</section>
+
+<script src="js/dashboard.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
