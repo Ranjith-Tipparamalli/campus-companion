@@ -39,3 +39,10 @@ document.querySelectorAll("a, button").forEach(el => {
         }
     });
 });
+
+function goHome() {
+    document.querySelector(".page").classList.add("page-exit");
+    setTimeout(() => {
+        window.location = "index.html#home";
+    }, 400);
+}

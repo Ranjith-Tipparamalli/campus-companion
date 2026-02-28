@@ -43,6 +43,13 @@ function addTask() {
     updateChart(tasks);
 }
 
+// ENTER key support for adding task
+document.getElementById("taskInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
+
 function removeTask(index) {
     tasks.splice(index, 1);
     localStorage.setItem("tasks", JSON.stringify(tasks));
