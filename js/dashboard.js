@@ -1,3 +1,8 @@
+// Load saved theme without flicker
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
+
 let user = localStorage.getItem("student");
 document.getElementById("welcome").innerText =
 "Welcome " + user;
@@ -64,8 +69,14 @@ function toggleTask(index) {
     updateChart(tasks);
 }
 
-function toggleDark(){
-document.body.classList.toggle("dark");
+function toggleDark() {
+    document.body.classList.toggle("dark");
+
+    // save preference
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+    );
 }
 
 showTasks();

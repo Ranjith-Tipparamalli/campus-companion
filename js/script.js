@@ -20,26 +20,22 @@ window.onload = function () {
         loader.style.display = "none";
     }
 };
-// Smooth page exit animation
-document.querySelectorAll("a, button").forEach(el => {
-    el.addEventListener("click", e => {
-        const link = el.getAttribute("href") || el.getAttribute("onclick");
+// Smooth transitions ONLY for navigation links
+document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
 
-        if (link && !link.includes("#")) {
-            e.preventDefault();
-            document.querySelector(".page").classList.add("page-exit");
+        // Ignore in-page anchors
+        if (href.startsWith("#")) return;
 
-            setTimeout(() => {
-                if (el.tagName === "A") {
-                    window.location = el.href;
-                } else {
-                    el.click();
-                }
-            }, 400);
-        }
+        e.preventDefault();
+        document.querySelector(".page").classList.add("page-exit");
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 400);
     });
 });
-
 function goHome() {
     document.querySelector(".page").classList.add("page-exit");
     setTimeout(() => {
