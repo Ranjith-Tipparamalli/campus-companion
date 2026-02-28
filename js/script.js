@@ -20,3 +20,22 @@ window.onload = function () {
         loader.style.display = "none";
     }
 };
+// Smooth page exit animation
+document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("click", e => {
+        const link = el.getAttribute("href") || el.getAttribute("onclick");
+
+        if (link && !link.includes("#")) {
+            e.preventDefault();
+            document.querySelector(".page").classList.add("page-exit");
+
+            setTimeout(() => {
+                if (el.tagName === "A") {
+                    window.location = el.href;
+                } else {
+                    el.click();
+                }
+            }, 400);
+        }
+    });
+});
